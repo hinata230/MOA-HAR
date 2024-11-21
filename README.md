@@ -32,8 +32,8 @@
   ```
 
 
-## 1. 실행 방법 
-### 1. Softmax Classifier 및 LSTM 학습하기.
+## 1. Softmax Classifier 및 LSTM 모델 실행 방법 
+### 1. 학습하기.
 * `LSTM/` 폴더로 이동 후 학습할 모델과 학습할 데이터를 입력하고 학습 모드를 지정하는 스크립트를 실행.
   
   ```
@@ -48,9 +48,9 @@
 * 학습이 완료 되면 `LSTM/pretrained` 폴더가 생성되고, 폴더 안에 `model_with_params_(모델 종류)_(데이터 종류).pth` 파일이 생성됨.
   * ex) `model_with_params_SC_UCI.pth`
 
-### 2. Softmax Classifier 및 LSTM 평가하기.
+### 2. 평가하기.
 * 평가할 모델과 데이터에 대한 `.pth` 파일이 생성되었는지 확인 필요.
-* 만약 없다면 1. Softmax Classifier 및 LSTM 학습하기. 파트에서 학습 모드 수행 후 `.pth`파일을 생성.
+* 만약 없다면 1. 학습하기. 파트에서 학습 모드 수행 후 `.pth`파일을 생성.
   
 * `LSTM/` 폴더로 이동 후 평가할 모델과 평가할 데이터를 입력하고 평가 모드를 지정하는 스크립트를 실행.
   
@@ -59,3 +59,30 @@
   python3 main.py --model SC --data UCI --mode eval
   ```
 * 평가가 완료되면 해당 모델에서 평가한 데이터 셋의 accuracy와 F1 Score가 출력됨.
+
+## 2. Transformer 모델 실행 방법 
+### 1. 학습하기.
+* `Transformer/` 폴더로 이동 후 학습할 모델과 학습할 데이터를 입력하고 학습 모드를 지정하는 스크립트를 실행.
+  
+  ```
+  cd Transformer
+  python3 main.py --task UCI --mode train
+  ```
+
+    * --task : 사용할 데이터 종류 ("UCI", "WISDM", "MOTIONSENSE", MOA(수집한 데이터))
+    * --mode : 학습/평가 모드 종류 ("train" : 학습, "eval" : 평가)
+
+* 학습이 완료 되면 `Transformer/pretrained` 폴더가 생성되고, 폴더 안에 `model_with_params_transformer_(데이터 종류).pth` 파일이 생성됨.
+  * ex) `model_with_params_transformer_UCI.pth`
+
+### 2. 평가하기.
+* 평가할 모델과 데이터에 대한 `.pth` 파일이 생성되었는지 확인 필요.
+* 만약 없다면 1. 학습하기. 파트에서 학습 모드 수행 후 `.pth`파일을 생성.
+  
+* `Transformer/` 폴더로 이동 후 평가할 모델과 평가할 데이터를 입력하고 평가 모드를 지정하는 스크립트를 실행.
+  
+  ```
+  cd Transformer
+  python3 main.py --data task --mode eval
+  ```
+* 평가가 완료되면 Transformer에서 평가한 데이터 셋의 accuracy와 F1 Score가 출력됨.
