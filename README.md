@@ -1,12 +1,24 @@
 # MOAdata Human Activity Recognition
 
+## 0. 수행 환경
+* Pytorch 2.2.2, CUDA 11.8 version에서 수행함.
+  
+* Pytorch 설치 링크
+  >> pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu118
+
 ## 0. 사전 작업
 * `LSTM/`, `Transformer/` 폴더 안에 `dataset/` 폴더를 생성한 후 사용할 데이터셋(public 데이터 혹은 수집한 데이터)을 다운로드.
   * 수집한 데이터 사용 시 `dataset/` 폴더 안에 위치해야 함.
   * public 데이터는 아래와 같이 다운로드.
   ```
   cd LSTM/
-  wget https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones
+  mkdir dataset/
+  cd dataset/
+  wget https://archive.ics.uci.edu/static/public/240/human+activity+recognition+using+smartphones.zip
+  unzip human+activity+recognition+using+smartphones.zip
+  unzip UCI\ HAR\ Dataset.zip
+  mv UCI\ HAR\ Dataset UCI_dataset
+  
   wget https://www.cis.fordham.edu/wisdm/dataset.php
   wget https://www.kaggle.com/datasets/malekzadeh/motionsense-dataset
   ```
