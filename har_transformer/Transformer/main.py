@@ -213,7 +213,7 @@ def evaluation(model, mat_lst, ds_iter, training_config, task):
 
 
     print("Evaluation Results")
-    print("Loss: %2.5f" % eval_losses.avg)
+#    print("Loss: %2.5f" % eval_losses.avg)
     print("Accuracy: %2.5f" % accuracy)
     print("Final f1 score is: %2.5f" % f1)
 
@@ -307,11 +307,11 @@ def main():
 
     device_ids = list(range(torch.cuda.device_count()))
     model_config['batch_size'] = int(training_config['batch_size']/ len(device_ids))
-    print(f"GPU list: {device_ids}")
+#    print(f"GPU list: {device_ids}")
     #os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
     
 
-    print(json.dumps([model_config, training_config], indent = 4))
+#    print(json.dumps([model_config, training_config], indent = 4))
 
     ### model preparation ###
     if args.task == "lra-retrieval":
