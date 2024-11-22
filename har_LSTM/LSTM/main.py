@@ -22,6 +22,7 @@ from collections import Counter
 import warnings
 warnings.filterwarnings('ignore')
 
+os.makedirs("pretrained", exist_ok=True)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model", type=str, help='A Type of model')
