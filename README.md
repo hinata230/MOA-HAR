@@ -8,6 +8,11 @@
 pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu118
 ```
 
+*git clone 후 requirement.txt 설치
+```
+git clone 
+pip install -r requirement.txt
+```
 
 ## 0. 사전 작업
 * `LSTM/`, `Transformer/` 폴더 안에 `dataset/` 폴더를 생성한 후 사용할 데이터셋(public 데이터 혹은 수집한 데이터)을 다운로드.
