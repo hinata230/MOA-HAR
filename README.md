@@ -22,8 +22,8 @@ pip install -r requirement.txt
   mkdir dataset/
   cd dataset/
   ```
-  * public 데이터는 아래와 같이 다운로드.
-    * UCI 데이터셋 다운로드
+  * public 데이터 다운로드 방법.
+    * UCI 데이터셋
     ```
     wget https://archive.ics.uci.edu/static/public/240/human+activity+recognition+using+smartphones.zip
     unzip human+activity+recognition+using+smartphones.zip
@@ -32,14 +32,14 @@ pip install -r requirement.txt
     ```
 
 
-    * WISDM 데이터셋 다운로드 (**주의** - 다운로드 후 `WISDM_ar_v1.1_raw.txt` 파일 내 일부 line을 수정해야 함.)
+    * WISDM 데이터셋 (**주의** - 다운로드 후 `WISDM_ar_v1.1_raw.txt` 파일 내 일부 line을 수정해야 함.)
     ```
     wget https://www.cis.fordham.edu/wisdm/includes/datasets/latest/WISDM_ar_latest.tar.gz
     tar -zxvf WISDM_ar_latest.tar.gz
     mv WISDM_ar_v1.1/ WISDM_dataset
     ```
 
-    * MotionSense 데이터셋 다운로드
+    * MotionSense 데이터셋
     ```
     cd ../
     git init
@@ -54,10 +54,26 @@ pip install -r requirement.txt
     mv data_subjects_info.csv ../dataset/MotionSense_dataset/
     ```  
 
-  * public 데이터 링크
-    * UCI : https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones
-    * WISDM : https://www.cis.fordham.edu/wisdm/dataset.php
-    * MotionSense : https://www.kaggle.com/datasets/malekzadeh/motionsense-dataset
+    * public 데이터 링크
+      * UCI : https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones
+      * WISDM : https://www.cis.fordham.edu/wisdm/dataset.php
+      * MotionSense : https://www.kaggle.com/datasets/malekzadeh/motionsense-dataset
+
+
+  * 수집된 데이터(MOA) 처리 방법.
+    * `LSTM/dataset` 혹은 `Transformer/dataset/` 폴더 안에 `MOA_dataset/` 폴더 생성.
+    * `MOA_dataset/` 폴더 안에 `sensor_data_YYMMDD.json` (센서 데이터), `app_data_YYMMDD.json` (앱 데이터) 형태로 저장.
+    * (선택 사항) 수집한 json 파일의 전처리가 필요한 경우 `Transformer/preprocessed` 폴더의 `preprocess_json.py` 파일 실행.
+      ```
+      cd Transformer/preprocessed
+      python3 preprocess_json.py
+      ```
+      
+    * 그 후 `Transformer/preprocessed` 폴더의 `create_MOA.py` 파일 실행.
+      ```
+      cd Transformer/preprocessed
+      python3 create_MOA.py
+      ```
  
 * 다운로드 한 데이터셋을 .pickle로 변환시켜야 함.
   ```python
