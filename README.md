@@ -8,7 +8,7 @@
 pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu118
 ```
 
-*git clone 후 requirement.txt 설치
+* git clone 후 requirement.txt 설치
 ```
 git clone https://github.com/hinata230/MOA-HAR.git
 pip install -r requirement.txt
