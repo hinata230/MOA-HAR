@@ -11,20 +11,42 @@ pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https
 
 ## 0. 사전 작업
 * `LSTM/`, `Transformer/` 폴더 안에 `dataset/` 폴더를 생성한 후 사용할 데이터셋(public 데이터 혹은 수집한 데이터)을 다운로드.
-  * 수집한 데이터 사용 시 `dataset/` 폴더 안에 위치해야 함.
-  * public 데이터는 아래와 같이 다운로드.
+  * 모든 데이터셋은 `dataset/` 폴더 안에 위치해야 함.
   ```
   cd LSTM/
   mkdir dataset/
   cd dataset/
-  wget https://archive.ics.uci.edu/static/public/240/human+activity+recognition+using+smartphones.zip
-  unzip human+activity+recognition+using+smartphones.zip
-  unzip UCI\ HAR\ Dataset.zip
-  mv UCI\ HAR\ Dataset UCI_dataset
-  
-  wget https://www.cis.fordham.edu/wisdm/dataset.php
-  wget https://www.kaggle.com/datasets/malekzadeh/motionsense-dataset
   ```
+  * public 데이터는 아래와 같이 다운로드.
+    * UCI 데이터셋 다운로드
+    ```
+    wget https://archive.ics.uci.edu/static/public/240/human+activity+recognition+using+smartphones.zip
+    unzip human+activity+recognition+using+smartphones.zip
+    unzip UCI\ HAR\ Dataset.zip
+    mv UCI\ HAR\ Dataset UCI_dataset
+    ```
+
+
+    * WISDM 데이터셋 다운로드 (**주의** - 다운로드 후 `WISDM_ar_v1.1_raw.txt` 파일 내 일부 line을 수정해야 함.)
+    ```
+    wget https://www.cis.fordham.edu/wisdm/includes/datasets/latest/WISDM_ar_latest.tar.gz
+    tar -zxvf WISDM_ar_latest.tar.gz
+    mv WISDM_ar_v1.1/ WISDM_dataset
+    ```
+
+    * MotionSense 데이터셋 다운로드
+    ```
+    git init
+    git remote add origin https://github.com/mmalekzadeh/motion-sense.git
+    git config core.sparsecheckout true
+    echo "data/A_DeviceMotion_data.zip" >> .git/info/sparse-checkout
+    echo "data/data_subjects_info.csv" >> .git/info/sparse-checkout
+    git pull origin master
+    cd data/
+    unzip A_DeviceMotion_data.zip -d ../
+    mv A_DeviceMotion_data/ MotionSense_dataset
+    
+    ```
   
   ```
   cd Transformer/
