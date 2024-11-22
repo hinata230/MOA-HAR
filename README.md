@@ -13,7 +13,7 @@ pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https
 * `LSTM/`, `Transformer/` 폴더 안에 `dataset/` 폴더를 생성한 후 사용할 데이터셋(public 데이터 혹은 수집한 데이터)을 다운로드.
   * 모든 데이터셋은 `dataset/` 폴더 안에 위치해야 함.
   ```
-  cd LSTM/
+  cd LSTM/ (cd Transformer/)
   mkdir dataset/
   cd dataset/
   ```
@@ -36,6 +36,7 @@ pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https
 
     * MotionSense 데이터셋 다운로드
     ```
+    cd ../
     git init
     git remote add origin https://github.com/mmalekzadeh/motion-sense.git
     git config core.sparsecheckout true
@@ -46,21 +47,14 @@ pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https
     unzip A_DeviceMotion_data.zip -d ../
     mv ../A_DeviceMotion_data/ ../dataset/MotionSense_dataset
     mv data_subjects_info.csv ../dataset/MotionSense_dataset/
-    
-    ```
-  
-  ```
-  cd Transformer/
-  wget https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones
-  wget https://www.cis.fordham.edu/wisdm/dataset.php
-  wget https://www.kaggle.com/datasets/malekzadeh/motionsense-dataset
-  ```
+    ```  
+
   * public 데이터 링크
     * UCI : https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones
     * WISDM : https://www.cis.fordham.edu/wisdm/dataset.php
     * MotionSense : https://www.kaggle.com/datasets/malekzadeh/motionsense-dataset
  
-* 다운로드 받은 데이터셋을 .pickle로 변환시켜야 함.
+* 다운로드 한 데이터셋을 .pickle로 변환시켜야 함.
   ```python
   cd Transformer/preprocess/
   python3 create_UCI.py     # UCI.train.pickle, UCI.test.pickle 생성 (public 데이터)
