@@ -57,10 +57,10 @@ TEST = "test/"
 DATASET_PATH = "dataset/UCI_dataset/"
 
 X_train_signals_paths = [
-    DATASET_PATH + TRAIN + "Inertial_Signals/" + signal + "train.txt" for signal in INPUT_SIGNAL_TYPES
+    DATASET_PATH + TRAIN + "Inertial Signals/" + signal + "train.txt" for signal in INPUT_SIGNAL_TYPES
 ]
 X_test_signals_paths = [
-    DATASET_PATH + TEST + "Inertial_Signals/" + signal + "test.txt" for signal in INPUT_SIGNAL_TYPES
+    DATASET_PATH + TEST + "Inertial Signals/" + signal + "test.txt" for signal in INPUT_SIGNAL_TYPES
 ]
 
 y_train_path = DATASET_PATH + TRAIN + "y_train.txt"
