@@ -10,11 +10,11 @@ pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https
 
 *git clone 후 requirement.txt 설치
 ```
-git clone 
+git clone https://github.com/hinata230/MOA-HAR.git
 pip install -r requirement.txt
 ```
 
-## 0. 사전 작업
+## 1. 사전 작업
 * `LSTM/`, `Transformer/` 폴더 안에 `dataset/` 폴더를 생성한 후 사용할 데이터셋(public 데이터 혹은 수집한 데이터)을 다운로드.
   * 모든 데이터셋은 `dataset/` 폴더 안에 위치해야 함.
   ```
@@ -69,7 +69,7 @@ pip install -r requirement.txt
   ```
 
 
-## 1. Softmax Classifier 및 LSTM 모델 실행 방법 
+## 2. Softmax Classifier 및 LSTM 모델 실행 방법 
 ### 1. 학습하기.
 * `LSTM/` 폴더로 이동 후 학습할 모델과 학습할 데이터를 입력하고 학습 모드를 지정하는 스크립트를 실행.
   
@@ -97,7 +97,7 @@ pip install -r requirement.txt
   ```
 * 평가가 완료되면 해당 모델에서 평가한 데이터 셋의 accuracy와 F1 Score가 출력됨.
 
-## 2. Transformer 모델 실행 방법 
+## 3. Transformer 모델 실행 방법 
 ### 1. 학습하기.
 * `Transformer/` 폴더로 이동 후 학습할 모델과 학습할 데이터를 입력하고 학습 모드를 지정하는 스크립트를 실행.
   
