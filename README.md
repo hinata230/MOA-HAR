@@ -44,7 +44,8 @@ pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https
     git pull origin master
     cd data/
     unzip A_DeviceMotion_data.zip -d ../
-    mv A_DeviceMotion_data/ MotionSense_dataset
+    mv ../A_DeviceMotion_data/ ../dataset/MotionSense_dataset
+    mv data_subjects_info.csv ../dataset/MotionSense_dataset/
     
     ```
   
